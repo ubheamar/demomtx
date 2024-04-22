@@ -26,6 +26,27 @@
         "--in-memory?"
       ],
       "problemMatcher": []
+    },
+    {
+      "type": "build.mta",
+      "label": "Build MTA",
+      "taskType": "Build",
+      "projectPath": "/home/user/projects/demomtx",
+      "extensions": []
+    },
+    {
+      "type": "deploy.mta.cf",
+      "label": "Deploy MTA to Cloud Foundry",
+      "taskType": "Deploy",
+      "mtarPath": "/home/user/projects/demomtx/mta_archives/demomtx_0.0.1.mtar",
+      "extensions": [],
+      "dependsOn": [
+        "Build MTA"
+      ],
+      "cfTarget": "NDBS _INDIA",
+      "cfEndpoint": "https://api.cf.eu10.hana.ondemand.com",
+      "cfOrg": "itgDEV",
+      "cfSpace": "NDBS _INDIA-Products"
     }
   ]
 }

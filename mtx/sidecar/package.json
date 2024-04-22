@@ -15,6 +15,16 @@
     "start": "cds-serve"
   },
   "cds": {
-    "profile": "mtx-sidecar"
+    "profile": "mtx-sidecar",
+    "requires": {
+      "multitenancy": true,
+      "cds.xt.DeploymentService": {
+        "hdi": {
+          "create": {
+            "database_id": "1cfc87c7-52a5-4a3c-bff0-fd684a095442"
+          }
+        }
+      }
+    }
   }
 }

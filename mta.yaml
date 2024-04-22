@@ -37,13 +37,12 @@ modules:
       - name: mtx-api
         properties:
           mtx-url: ${default-url}
-
-  - name: demomtx-db-deployer
-    type: hdb
-    path: gen/db
-    parameters:
-      buildpack: nodejs_buildpack
     requires:
+      - name: demomtx-auth
+      - name: demomtx-registry
+      - name: app-api
+        properties:
+          SUBSCRIPTION_URL: ~{app-protocol}://\${tenant_subdomain}-~{app-uri}
       - name: demomtx-db
 
   - name: demomtx
@@ -61,6 +60,18 @@ modules:
           url: ~{srv-url}
           forwardAuthToken: true
       - name: demomtx-auth
+      - name: mtx-api
+        group: destinations
+        properties:
+          name: mtx-api # must be used in xs-app.json as well
+          url: ~{mtx-url}
+    properties:
+      TENANT_HOST_PATTERN: "^(.*)-${default-uri}"
+    provides:
+      - name: app-api
+        properties:
+          app-protocol: ${protocol}
+          app-uri: ${default-uri}
 
 resources:
   - name: demomtx-registry
@@ -93,7 +104,7 @@ resources:
         xsappname: demomtx-${org}
         tenant-mode: dedicated
   - name: demomtx-db
-    type: com.sap.xs.hdi-container
+    type: org.cloudfoundry.managed-service
     parameters:
-      service: hana
-      service-plan: hdi-shared
+      service: service-manager
+      service-plan: container

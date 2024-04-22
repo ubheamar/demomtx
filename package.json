@@ -7,11 +7,11 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "^7",
-    "@sap/cds-mtxs": "^1.9",
-    "express": "^4",
+    "@sap/cds-hana": "^2",
+    "@sap/cds-mtxs": "^1.15.0",
     "@sap/xssec": "^3",
-    "passport": "^0",
-    "@sap/cds-hana": "^2"
+    "express": "^4",
+    "passport": "^0"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^1",
