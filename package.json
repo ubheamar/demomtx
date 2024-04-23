@@ -8,7 +8,7 @@
   "dependencies": {
     "@sap/cds": "^7",
     "@sap/cds-hana": "^2",
-    "@sap/cds-mtxs": "^1.15.0",
+    "@sap/cds-mtxs": "^1.17",
     "@sap/xssec": "^3",
     "express": "^4",
     "passport": "^0"

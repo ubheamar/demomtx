@@ -102,7 +102,7 @@ resources:
       path: ./xs-security.json
       config:
         xsappname: demomtx-${org}
-        tenant-mode: dedicated
+        tenant-mode: shared
   - name: demomtx-db
     type: org.cloudfoundry.managed-service
     parameters:
